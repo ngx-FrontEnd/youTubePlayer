@@ -1,0 +1,39 @@
+<div id="player" style="width:100%; height:70vh"></div>
+
+<form [formGroup]="form">
+  <mat-card fxLayout="column">
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Title </mat-label>
+      <input matInput placeholder="Enter the start Title" formControlName="title">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Time</mat-label>
+      <input matInput mask="00:00:00" placeholder="00:00:00" formControlName="time">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Description</mat-label>
+      <input matInput placeholder="Enter the start Description" formControlName="des">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="pushValue()">Add </button>
+  </mat-card>
+</form>
+<mat-card>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let i of storeValue">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <a (click)="countSeconds(i.time)">{{i.time|mask:'00:00:00'}}</a>
+        </mat-panel-title>
+
+        <mat-panel-description>
+          {{i.title|titlecase}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>{{i.description}}</p>
+    </mat-expansion-panel>
+  </mat-accordion>
+</mat-card>
+
+
+
+<!-- <input [(ngModel)]="name" #ctrl="ngModel" required> -->

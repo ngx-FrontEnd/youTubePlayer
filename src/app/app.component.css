@@ -1,0 +1,9 @@
+mat-panel-title a {
+  color: blue;
+}
+mat-panel-title a:hover {
+  text-decoration: underline;
+}
+mat-panel-title a:active {
+  color: red;
+}
